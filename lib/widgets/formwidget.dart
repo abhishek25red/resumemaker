@@ -36,103 +36,99 @@ class cvFormWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => SingleChildScrollView(
-    child: Padding(
-      padding: EdgeInsets.all(16),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          buildTitle(),
-          SizedBox(height: 8),
-          buildFullname(),
-          SizedBox(height: 8),
-          buildAddress(),
-          SizedBox(height: 16),
-          buildEdu(),
-          SizedBox(height: 16),
-          buildSkills(),
-          SizedBox(height: 16),
-        ],
-      ),
-    ),
-  );
+        child: Padding(
+          padding: EdgeInsets.all(16),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              buildTitle(),
+              SizedBox(height: 8),
+              buildFullname(),
+              SizedBox(height: 8),
+              buildAddress(),
+              SizedBox(height: 16),
+              buildEdu(),
+              SizedBox(height: 16),
+              buildSkills(),
+              SizedBox(height: 16),
+            ],
+          ),
+        ),
+      );
 
   Widget buildTitle() => TextFormField(
-    maxLines: 1,
-    initialValue: title,
-    style: TextStyle(
-      color: Colors.black,
-      fontWeight: FontWeight.bold,
-      fontSize: 24,
-    ),
-    decoration: InputDecoration(
-      border: InputBorder.none,
-      hintText: 'Title',
-      hintStyle: TextStyle(color: Colors.black),
-    ),
-    validator: (title) =>
-    title != null && title.isEmpty ? 'The title cannot be empty' : null,
-    onChanged: onChangedTitle,
-  );
-Widget buildFullname() => TextFormField(
-    maxLines: 1,
-    initialValue: title,
-    style: TextStyle(
-      color: Colors.black,
-      fontWeight: FontWeight.bold,
-      fontSize: 24,
-    ),
-    decoration: InputDecoration(
-      border: InputBorder.none,
-      hintText: 'fullname',
-      hintStyle: TextStyle(color: Colors.black),
-    ),
-    validator: (fullname) =>
-    fullname != null && fullname.isEmpty ? 'The fullname cannot be empty' : null,
-    onChanged: onChangedTitle,
-  );
+        maxLines: 1,
+        initialValue: title,
+        style: TextStyle(
+          color: Colors.black,
+          fontWeight: FontWeight.bold,
+          fontSize: 24,
+        ),
+        decoration: InputDecoration(
+          border: InputBorder.none,
+          hintText: 'Title',
+          hintStyle: TextStyle(color: Colors.black),
+        ),
+        validator: (title) =>
+            title != null && title.isEmpty ? 'The title cannot be empty' : null,
+        onChanged: onChangedTitle,
+      );
+  Widget buildFullname() => TextFormField(
+        maxLines: 1,
+        initialValue: title,
+        style: TextStyle(
+          color: Colors.black,
+          fontWeight: FontWeight.bold,
+          fontSize: 24,
+        ),
+        decoration: InputDecoration(
+          border: InputBorder.none,
+          hintText: 'fullname',
+          hintStyle: TextStyle(color: Colors.black),
+        ),
+        validator: (fullname) => fullname != null && fullname.isEmpty
+            ? 'The fullname cannot be empty'
+            : null,
+        onChanged: onChangedTitle,
+      );
   Widget buildAddress() => TextFormField(
-    maxLines: 5,
-    initialValue: address,
-    style: TextStyle(color: Colors.black, fontSize: 18),
-    decoration: InputDecoration(
-      border: InputBorder.none,
-      hintText: 'Type some text...',
-      hintStyle: TextStyle(color: Colors.black),
-    ),
-    validator: (title) => title != null && title.isEmpty
-        ? 'The description cannot be empty'
-        : null,
-    onChanged: onChangedAddress,
-  );
-
-  
+        maxLines: 5,
+        initialValue: address,
+        style: TextStyle(color: Colors.black, fontSize: 18),
+        decoration: InputDecoration(
+          hintText: 'address',
+          hintStyle: TextStyle(color: Colors.black),
+        ),
+        validator: (title) => title != null && title.isEmpty
+            ? 'The description cannot be empty'
+            : null,
+        onChanged: onChangedAddress,
+      );
 
   Widget buildSkills() => TextFormField(
-    maxLines: 5,
-    initialValue: skills,
-    style: TextStyle(color: Colors.black, fontSize: 18),
-    decoration: InputDecoration(
-      border: InputBorder.none,
-      hintText: 'Type some text...',
-      hintStyle: TextStyle(color: Colors.black),
-    ),
-    validator: (title) => title != null && title.isEmpty
-        ? 'The description cannot be empty'
-        : null,
-    onChanged: onChangedSkills,
-  );
+        maxLines: 5,
+        initialValue: skills,
+        style: TextStyle(color: Colors.black, fontSize: 18),
+        decoration: InputDecoration(
+          hintText: 'skills',
+          hintStyle: TextStyle(color: Colors.black),
+        ),
+        validator: (title) => title != null && title.isEmpty
+            ? 'The description cannot be empty'
+            : null,
+        onChanged: onChangedSkills,
+      );
   Widget buildEdu() => TextFormField(
-    maxLines: 5,
-    initialValue: edu.toString(),
-    style: TextStyle(color: Colors.black, fontSize: 18),
-    decoration: InputDecoration(
-      border: InputBorder.none,
-      hintText: 'Type some text...',
-      hintStyle: TextStyle(color: Colors.black),
-    ),
-    validator: (title) => title != null && title.isEmpty
-        ? 'The Education cannot be empty'
-        : null,
-    onChanged: onChangedEdu,
-  );
+        maxLines: 5,
+        initialValue: edu.toString(),
+        style: TextStyle(color: Colors.black, fontSize: 18),
+        decoration: InputDecoration(
+          hintText: 'Education',
+          hintStyle: TextStyle(color: Colors.black),
+        ),
+        validator: (title) => title != null && title.isEmpty
+            ? 'The Education cannot be empty'
+            : null,
+        onChanged: onChangedEdu,
+      );
 }

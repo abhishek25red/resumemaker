@@ -39,7 +39,7 @@ class _AddEditcvPageState extends State<AddEditcvPage> {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.green.shade100,
+          backgroundColor: Colors.blueAccent,
           title: Text('Edit your cv'),
           centerTitle: true,
           actions: [buildButton()],
@@ -52,11 +52,12 @@ class _AddEditcvPageState extends State<AddEditcvPage> {
             title: title,
             fullname: fullname,
             address: address,
-            onChangedLiked: (liked) =>
-                setState(() => this.liked = liked),
-            onChangedMnumber: (mnumber) => setState(() => this.mnumber = mnumber),
+            onChangedLiked: (liked) => setState(() => this.liked = liked),
+            onChangedMnumber: (mnumber) =>
+                setState(() => this.mnumber = mnumber),
             onChangedTitle: (title) => setState(() => this.title = title),
-            onChangedFullname: (fullname) => setState(() => this.fullname = fullname),
+            onChangedFullname: (fullname) =>
+                setState(() => this.fullname = fullname),
             onChangedSkills: (skills) => setState(() => this.skills = skills),
             onChangedEdu: (edu) => setState(() => this.edu = edu),
             onChangedAddress: (address) =>
@@ -73,7 +74,7 @@ class _AddEditcvPageState extends State<AddEditcvPage> {
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           onPrimary: Colors.white,
-          primary: isFormValid ? null : Colors.grey.shade700,
+          primary: isFormValid ? null : Colors.lightBlue,
         ),
         onPressed: addOrUpdatecvs,
         child: Text('Save'),
@@ -105,7 +106,6 @@ class _AddEditcvPageState extends State<AddEditcvPage> {
       fullname: fullname,
       address: address,
       skills: skills,
-
     );
 
     await cvsDatabase.instance.update(cvs);

@@ -37,43 +37,42 @@ class _cvDetailPageState extends State<cvDetailPage> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(
-      backgroundColor: Colors.green.shade100,
-      title: Text('resumes'),
-      actions: [editButton(), deleteButton()],
-    ),
-    body: isLoading
-        ? Center(child: CircularProgressIndicator())
-        : Padding(
-      padding: EdgeInsets.all(12),
-      child: ListView(
-        padding: EdgeInsets.symmetric(vertical: 8),
-        children: [
-          Text(
-            cvs.title,
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 22,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          SizedBox(height: 8),
-          Text(
-            DateFormat.yMMMd().format(cvs.createdTime),
-            style: TextStyle(color: Colors.black),
-          ),
-          SizedBox(height: 8),
-          Text(
-            cvs.address,
-            style: TextStyle(color: Colors.black, fontSize: 18),
-          )
-        ],
-      ),
-    ),
-  );
+        appBar: AppBar(
+          backgroundColor: Colors.blueAccent,
+          title: Text('resumes'),
+          actions: [editButton(), deleteButton()],
+        ),
+        body: isLoading
+            ? Center(child: CircularProgressIndicator())
+            : Padding(
+                padding: EdgeInsets.all(12),
+                child: ListView(
+                  padding: EdgeInsets.symmetric(vertical: 8),
+                  children: [
+                    Text(
+                      cvs.title,
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(height: 8),
+                    Text(
+                      DateFormat.yMMMd().format(cvs.createdTime),
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    SizedBox(height: 8),
+                    Text(
+                      cvs.address,
+                      style: TextStyle(color: Colors.black, fontSize: 18),
+                    )
+                  ],
+                ),
+              ),
+      );
 
   Widget editButton() => IconButton(
-
       icon: Icon(Icons.edit_outlined),
       onPressed: () async {
         if (isLoading) return;
@@ -86,11 +85,11 @@ class _cvDetailPageState extends State<cvDetailPage> {
       });
 
   Widget deleteButton() => IconButton(
-    icon: Icon(Icons.delete),
-    onPressed: () async {
-      await cvsDatabase.instance.delete(widget.cvId);
+        icon: Icon(Icons.delete),
+        onPressed: () async {
+          await cvsDatabase.instance.delete(widget.cvId);
 
-      Navigator.of(context).pop();
-    },
-  );
+          Navigator.of(context).pop();
+        },
+      );
 }

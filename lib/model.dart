@@ -2,7 +2,6 @@
 
 class cvsFields {
   static final List<String> values = [
-    /// Add all fields
     id, liked, mnumber, title, address,skills,edu, time
   ];
 

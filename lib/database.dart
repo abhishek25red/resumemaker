@@ -72,8 +72,7 @@ CREATE TABLE $cvtable (
     final db = await instance.database;
 
     final orderBy = '${cvsFields.time} ASC';
-    // final result =
-    //     await db.rawQuery('SELECT * FROM $tableNotes ORDER BY $orderBy');
+   
 
     final result = await db.query(cvtable, orderBy: orderBy);
 
