@@ -62,7 +62,7 @@ class cv {
         createdTime: createdTime ?? this.createdTime,
       );
 
-  static cv fromJson(Map<String, Object?> json) => cv(
+  static cv fromJson(Map<dynamic, dynamic?> json) => cv(
     id: json[cvsFields.id] as int?,
     liked: json[cvsFields.liked] == 1,
     mnumber: json[cvsFields.mnumber] as int,

@@ -111,6 +111,8 @@ class _MyHomePageState extends State<MyHomePage> {
                       itemCount: cvs.length,
                       itemBuilder: (BuildContext context, int index) {
                         final cv = cvs[index];
+                        int idd = cv.id!;
+
                         return ListTile(
                             leading: Icon(
                               Icons.list,
@@ -123,8 +125,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   refreshcvs();
                                   await Navigator.of(context)
                                       .push(MaterialPageRoute(
-                                    builder: (context) =>
-                                        cvDetailPage(cvId: cv.id!),
+                                    builder: (context) => cvDetailPage(idd),
                                   ));
 
                                   refreshcvs();

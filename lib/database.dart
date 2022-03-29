@@ -12,7 +12,7 @@ class cvsDatabase {
   Future<Database> get database async {
     if (_database != null) return _database!;
 
-    _database = await _initDB('notes.db');
+    _database = await _initDB('cvs.db');
     return _database!;
   }
 
@@ -53,18 +53,16 @@ CREATE TABLE $cvtable (
 
   Future<cv> readcvs(int id) async {
     final db = await instance.database;
+    print(id);
 
-    final maps = await db.query(
-      cvtable,
-      columns: cvsFields.values,
-      where: '${cvsFields.id} = ?',
-      whereArgs: [id],
-    );
-
-    if (maps.isNotEmpty) {
+    List<Map> maps = await db.query(cvtable,
+        columns: ['id', 'title', 'fullname'],
+        where: '$id = ?',
+        whereArgs: [id]);
+    if (maps.length > 0) {
       return cv.fromJson(maps.first);
     } else {
-      throw Exception('ID $id not found');
+      throw Exception('id is not found');
     }
   }
 
