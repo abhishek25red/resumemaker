@@ -30,7 +30,7 @@ class _cvDetailPageState extends State<cvDetailPage> {
   Future refreshcv() async {
     setState(() => isLoading = true);
 
-    this.cvs = await cvsDatabase.instance.readNote(widget.cvId);
+    cvs = await cvsDatabase.instance.readcvs(widget.cvId);
 
     setState(() => isLoading = false);
   }

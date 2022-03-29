@@ -51,7 +51,7 @@ CREATE TABLE $cvtable (
     return cvs.copy(id: id);
   }
 
-  Future<cv> readNote(int id) async {
+  Future<cv> readcvs(int id) async {
     final db = await instance.database;
 
     final maps = await db.query(
@@ -72,7 +72,6 @@ CREATE TABLE $cvtable (
     final db = await instance.database;
 
     final orderBy = '${cvsFields.time} ASC';
-   
 
     final result = await db.query(cvtable, orderBy: orderBy);
 

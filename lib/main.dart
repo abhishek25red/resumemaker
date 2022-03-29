@@ -57,6 +57,25 @@ class _MyHomePageState extends State<MyHomePage> {
     var heightT = screensize.height;
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          OutlinedButton(
+            child: Text(
+              "+",
+              style: TextStyle(fontSize: 35),
+            ),
+            style: OutlinedButton.styleFrom(
+                primary: Colors.white,
+                onSurface: Colors.blueAccent,
+                side: BorderSide(color: Colors.blueAccent, width: 1)),
+            onPressed: () async {
+              await Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => AddEditcvPage()),
+              );
+
+              refreshcvs();
+            },
+          ),
+        ],
         title: Text("Resume Builder"),
         backgroundColor: Colors.blueAccent,
         elevation: 0,
@@ -93,11 +112,15 @@ class _MyHomePageState extends State<MyHomePage> {
                       itemBuilder: (BuildContext context, int index) {
                         final cv = cvs[index];
                         return ListTile(
-                            leading: Icon(Icons.list),
+                            leading: Icon(
+                              Icons.list,
+                              size: 35,
+                            ),
                             trailing: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
                                     primary: Colors.white),
                                 onPressed: () async {
+                                  refreshcvs();
                                   await Navigator.of(context)
                                       .push(MaterialPageRoute(
                                     builder: (context) =>
@@ -110,7 +133,10 @@ class _MyHomePageState extends State<MyHomePage> {
                                   "open",
                                   style: TextStyle(color: Colors.blueAccent),
                                 )),
-                            title: Text("List item ${cv.fullname}"));
+                            title: Text(
+                              cv.title,
+                              style: TextStyle(fontSize: 20),
+                            ));
                       })),
     );
   }
